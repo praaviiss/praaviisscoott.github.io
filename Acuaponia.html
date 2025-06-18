@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Acuaponía CBTA 220</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 1.1em;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: url('1111.jpg') no-repeat center center/cover;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 20px;
+        }
+
+        .content {
+            padding: 100px 20px 50px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .content h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #4CAF50;
+        }
+
+        .content p, .content ul {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .content ul li {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        footer {
+            background: #111;
+            color: #bbb;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 0.9em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.05);
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Swiper (si vas a usarlo más adelante) */
+        .swiper {
+            width: 80%;
+            height: 400px;
+            margin: 40px auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+    
+<body>
+
+    <header>
+        <nav>
+            <a href="Acuaponia.html">Inicio</a>
+            <a href="Sistema%20Acuaponico.html">Sistema Acuapónico</a>
+            <a href="Galeria.html">Galería</a>
+            <a href="Preguntas%20Frecuentes.html">Preguntas Frecuentes</a>
+            <a href="Contacto.html">Contacto</a>
+            <a href="Informcion%20de%202A-4A.html">Información de 2A-4A</a>
+            <a href="Recursos%20Adicionales.html">Galería</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Acuaponía CBTA 220</h1>
+        <p>Un futuro sostenible con la combinación de peces y plantas</p>
+    </section>
+<!-- SLIDER RESPONSIVO Y ADAPTABLE -->
+<div class="slider-container">
+  <div class="slider">
+    <div class="slide active">
+      <img src="imagen1.4.jpg" alt="Imagen 1">
+    </div>
+    <div class="slide">
+      <img src="imagen1.2.jpeg" alt="Imagen 2">
+    </div>
+    <div class="slide">
+      <img src="imagen1.3.webp" alt="Imagen 3">
+    </div>
+  </div>
+  <button class="prev" onclick="changeSlide(-1)">❮</button>
+  <button class="next" onclick="changeSlide(1)">❯</button>
+  <div class="indicators">
+    <span class="dot active" onclick="setSlide(0)"></span>
+    <span class="dot" onclick="setSlide(1)"></span>
+    <span class="dot" onclick="setSlide(2)"></span>
+  </div>
+</div>
+
+<style>
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #000;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  max-width: 100%;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Botones */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+/* Indicadores */
+.indicators {
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #717171;
+}
+</style>
+
+<script>
+let currentIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(index) {
+  if (index >= slides.length) currentIndex = 0;
+  else if (index < 0) currentIndex = slides.length - 1;
+  else currentIndex = index;
+
+  const offset = -currentIndex * 100;
+  document.querySelector('.slider').style.transform = `translateX(${offset}%)`;
+
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[currentIndex].classList.add('active');
+}
+
+function changeSlide(direction) {
+  showSlide(currentIndex + direction);
+}
+
+function setSlide(index) {
+  showSlide(index);
+}
+
+// Auto-slide (opcional)
+// setInterval(() => changeSlide(1), 5000);
+
+showSlide(currentIndex);
+</script>
+    <section class="content">
+        <h2>¿Qué es la acuaponía?</h2>
+        <p>La acuaponía es un sistema de producción de alimentos que combina la acuicultura (cría de peces) con la hidroponía (cultivo de plantas en agua) en un ambiente simbiótico. Los desechos de los peces sirven como fertilizante para las plantas, y estas purifican el agua que luego regresa a los peces.</p>
+        
+        <h2>Propósito</h2>
+        <p>El propósito de la acuaponía es ofrecer una alternativa sustentable para la producción de alimentos frescos, inocuos y nutritivos, mediante un sistema que reutiliza el agua y evita el uso de fertilizantes químicos, promoviendo la sostenibilidad y el autoconsumo.</p>
+        
+        <h2>Características</h2>
+        <ul>
+            <li>✅ Sistema sustentable con el medio ambiente.</li>
+            <li>✅ Produce alimentos frescos y nutritivos.</li>
+            <li>✅ Usa hasta un 90% menos agua que la agricultura tradicional.</li>
+            <li>✅ No utiliza fertilizantes químicos ni pesticidas.</li>
+            <li>✅ Mejora la economía y reduce residuos.</li>
+            <li>✅ Compatible con energías limpias como paneles solares.</li>
+            <li>⚠️ Puede ser costoso y requiere conocimientos técnicos.</li>
+        </ul>
+
+        <h2>Componentes del sistema</h2>
+        <ul>
+            <li>Tanques de crianza</li>
+            <li>Remoción de sólidos</li>
+            <li>Biofiltro</li>
+            <li>Subsistema hidropónico</li>
+            <li>Sump</li>
+            <li>Bombas (agua y aire)</li>
+            <li>Sustrato (tezontle, perlita, arcilla, piedra caliza)</li>
+        </ul>
+
+        <h2>Elementos biológicos</h2>
+        <ul>
+            <li><strong>Nitrosomonas:</strong> convierten amoniaco en nitritos.</li>
+            <li><strong>Nitrobacter:</strong> convierten nitritos en nitratos.</li>
+        </ul>
+
+        <h2>Calidad del agua</h2>
+        <table>
+            <tr><th>Parámetro</th><th>Rango Ideal</th></tr>
+            <tr><td>pH</td><td>6.5 - 8.5</td></tr>
+            <tr><td>Temperatura</td><td>18 - 28 °C</td></tr>
+            <tr><td>Oxígeno disuelto</td><td>5 - 10 ppm</td></tr>
+        </table>
+
+        <h2>🌱 Beneficios</h2>
+        <ul>
+            <li>✅ Recicla agua y nutrientes.</li>
+            <li>✅ Permite el cultivo de peces y vegetales al mismo tiempo.</li>
+            <li>✅ Menor huella ecológica.</li>
+            <li>✅ Ideal para zonas con poca agua o espacio.</li>
+        </ul>
+
+        <h2>🐠 Peces utilizados</h2>
+        <ul>
+            <li>Tilapia</li>
+            <li>Carpa</li>
+            <li>Bagre</li>
+            <li>Koi</li>
+        </ul>
+
+        <h2>🌿 Plantas recomendadas</h2>
+        <ul>
+            <li>Lechuga, tomate, zanahoria, fresa, pimientos, acelga, espinacas, albahaca y más.</li>
+        </ul>
+        <!-- SECCIÓN DE INFORMACIÓN PARA PÁGINA PRINCIPAL -->
+<section class="info-section">
+  <div class="info-content">
+    <div class="info-text">
+      <h2>¿Qué es la Acuaponía?</h2>
+      <p>
+        La acuaponía es un sistema de producción sostenible que combina la cría de peces (acuicultura) y el cultivo de plantas sin suelo (hidroponía).
+        Este sistema permite reciclar el agua, reducir el uso de químicos y obtener alimentos frescos de forma ecológica. 
+        Es ideal para zonas con escasez de agua o espacio.
+      </p>
+    </div>
+    <div class="info-image">
+      <img src="img/acuaponia-ejemplo.jpg" alt="Sistema Acuapónico">
+    </div>
+  </div>
+</section>
+
+<style>
+/* ESTILOS PARA LA SECCIÓN DE INFORMACIÓN */
+.info-section {
+  padding: 40px 20px;
+  background-color: #f4f8f9;
+  margin: 40px auto;
+  max-width: 1200px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.info-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-text {
+  flex: 1 1 50%;
+  padding: 20px;
+}
+
+.info-text h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.info-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.info-image {
+  flex: 1 1 40%;
+  padding: 30px;
+  text-align: center;
+}
+
+.info-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+</style>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Proyecto Acuaponía CENTRO DE BACHILLERATO TECNOLOGICO AGROPECUARIO 220.    CBTA 220.</p>
+    </footer>
+
+</body>
+</html>
